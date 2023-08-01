@@ -1,0 +1,14 @@
+<%- include('partial/header'); %>
+<h1>Home</h1>
+<p><%= HomeContent %></p>
+<% function truncate(str, maxlength) { return (str.length > maxlength) ?
+str.slice(0, maxlength - 1) + '…' : str; } %> <% Posts.forEach(function(post){
+%>
+<h1><%= post.title %></h1>
+<p>
+  <%= truncate(post.content,100) %>
+  <a href="/posts/<%= post.title %>">Read more</a>
+</p>
+<% }) %>
+<br />
+<%-include('partial/footer'); %>
